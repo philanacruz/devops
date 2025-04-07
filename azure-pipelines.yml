@@ -6,11 +6,11 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
+pool:TestAgent
+  
 
 steps:
-- task: Maven@3
+- task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
     mavenOptions: '-Xmx3072m'
@@ -19,4 +19,4 @@ steps:
     jdkArchitectureOption: 'x64'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package -DskipTest'
+    goals: 'compile'
